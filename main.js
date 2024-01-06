@@ -4,9 +4,14 @@ $(function () {
     // last will be the center
     var imgs = [
         "./images/image1.jpeg",
+        "./images/image6.jpg",
+        "./images/image7.jpg",
+        "./images/image8.jpg",
         "./images/image2.jpg",
+        "./images/image5.png",
         "./images/image3.jpg",
         "./images/image4.jpg",
+        "./images/image9.jpeg",
         "./images/center.jpg"
     ];
 
@@ -19,39 +24,12 @@ $(function () {
         $(this).each(function (index, item) {
             $(item).css("background-image", "url(" + imgs[index] + ")")
         })
-        $(".circle").css("background-image", "url(" + imgs[4] + ")")
+        $(".circle").css("background-image", "url(" + imgs[imgs.length - 1] + ")")
 
     }
     $(".square").Shape(imgs)
 
-    $.fn.Slider = function (imgs) {
-        var slider = this
-        $(".circle").on("click", function () {
-            $(slider).show()
-            $(".window").css("background-image", "url(" + imgs[4] + ")");
-        })
-        $("#close").on("click", function () {
-            $(slider).hide()
-        })
-        var index = 0;
-        $("#next").on("click", function () {
-            if (index < imgs.length) {
-                console.log(index, imgs[index]);
-                $(".window").css("background-image", "url(" + imgs[index] + ")");
-                if (index == 4) index = -1
-                index++;
-            }
-        })
-
-        $("#prev").on("click", function () {
-            if (index > -1) {
-                console.log(index, imgs[index]);
-                $(".window").css("background-image", "url(" + imgs[index] + ")");
-                if (index == 0) index = 5
-                index--;
-            }
-        })
-    }
-    $(".slider").Slider(imgs);
+    // slider plugin
+    $.fn.Slider(imgs);
 })
 
