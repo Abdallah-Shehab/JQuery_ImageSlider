@@ -16,13 +16,7 @@ $(function () {
             if (index >= imgs.length - 1) index = -1
             $(".window").css("background-image", "url(" + imgs[++index] + ")");
             console.log(index, imgs[index]);
-            // if (index < imgs.length) {
 
-
-            //     if (index == imgs.length - 1) index = -1
-            //     index++;
-
-            // }
         })
 
         $("#prev").on("click", function () {
